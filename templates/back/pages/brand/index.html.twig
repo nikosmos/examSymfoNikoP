@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<title>Model index</title>
+<title>Brand index</title>
 
 {% block body %}
-    <h1>Model index</h1>
+    <h1>Brand index</h1>
 
     <table class="table">
         <thead>
@@ -14,13 +14,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for model in models %}
+        {% for brand in brands %}
             <tr>
-                <td>{{ model.id }}</td>
-                <td>{{ model.name }}</td>
+                <td>{{ brand.id }}</td>
+                <td>{{ brand.name }}</td>
                 <td>
-                    <a href="{{ path('app_model_show', {'id': model.id}) }}">show</a>
-                    <a href="{{ path('app_model_edit', {'id': model.id}) }}">edit</a>
+                    <a href="{{ path('app_brand_show', {'id': brand.id}) }}">show</a>
+                    <a href="{{ path('app_brand_edit', {'id': brand.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_model_new') }}">Create new</a>
+    <a href="{{ path('app_brand_new') }}">Create new</a>
 {% endblock %}

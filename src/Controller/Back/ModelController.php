@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin')]
+#[Route('/admin/model')]
 class ModelController extends AbstractController
 {
-    #[Route('/model', name: 'app_model_index', methods: ['GET'])]
+    #[Route('/index', name: 'app_model_index', methods: ['GET'])]
     public function index(ModelRepository $modelRepository): Response
     {
-        return $this->render('model/index.html.twig', [
+        return $this->render('back/pages/model/index.html.twig', [
             'models' => $modelRepository->findAll(),
         ]);
     }
@@ -36,7 +36,7 @@ class ModelController extends AbstractController
             return $this->redirectToRoute('app_model_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('model/new.html.twig', [
+        return $this->renderForm('back/pages/model/new.html.twig', [
             'model' => $model,
             'form' => $form,
         ]);
@@ -45,7 +45,7 @@ class ModelController extends AbstractController
     #[Route('/{id}', name: 'app_model_show', methods: ['GET'])]
     public function show(Model $model): Response
     {
-        return $this->render('model/show.html.twig', [
+        return $this->render('back/pages/model/show.html.twig', [
             'model' => $model,
         ]);
     }
@@ -62,7 +62,7 @@ class ModelController extends AbstractController
             return $this->redirectToRoute('app_model_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('model/edit.html.twig', [
+        return $this->renderForm('back/pages/model/edit.html.twig', [
             'model' => $model,
             'form' => $form,
         ]);
