@@ -1,0 +1,28 @@
+
+body {
+  background-color: $main-background-color;
+  color: $main-color;
+  overflow-x: hidden;
+}
+
+.test-container {
+  background-color: deeppink;
+}
+
+.test-container-2 {
+  background-color: deepskyblue;
+}
+
+[data-hidden] {
+  cursor: pointer;
+}
+
+.main-link {
+  color: $main-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $orange;
+    text-decoration: none;
+  }
+}

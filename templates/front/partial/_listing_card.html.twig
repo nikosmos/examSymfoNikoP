@@ -1,0 +1,39 @@
+
+{% if containerClass is not defined %}
+    {% set containerClass = 'col-lg-4 col-md-6 col-sm-12' %}
+{% endif %}
+
+<div class="{{ containerClass }}">
+    <div class="card-listing-container">
+       {#  <a href="{{ path('app_listing_redirect', { 'name': listing.title }) }}"> #}
+            <img src="{{ listing.image }}">
+        </a>
+    </div>
+    <div class="d-flex justify-content-between mx-auto my-auto ">
+        {#
+        <div class="listing_title">
+            <p class="card-listing-name">{{ listing.title }}</p>
+        </div>
+        #}
+        <div>
+           Modèle: {{ listing.model.name}}
+        </div>
+        <div>
+            Description: {{ listing.description }}
+        </div>
+        <div>
+           Caractéristique: <ul>
+                    <li>
+                        {{ listing.price/10 }}€
+                    </li>
+                    <li>
+                        {{ listing.mileage }}
+                    </li>
+                    <li>
+                        {{ listing.producedYear }}
+                    </li>
+                </ul>
+        </div>
+
+    </div>
+</div>
