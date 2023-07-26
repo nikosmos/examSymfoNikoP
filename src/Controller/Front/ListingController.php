@@ -2,6 +2,7 @@
 
 namespace App\Controller\Front;
 
+use App\Entity\Listing;
 use App\Repository\ListingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,13 +24,20 @@ class ListingController extends AbstractController
         ]);
     }
 
-
-    public function handleRedirection(string $title, Request $request): Response
+#[Route('/listing/show/{id}', name: 'app_listing_show')]
+    public function handleRedirection(int $id): Response
     {
-        $listing = $this->listingRepository->findOneBy($title);
+        $listing = $this->listingRepository->findOneBy(['id' => $id]);
 
-
-            return $this->show($listing, $request);
+            return $this->show($listing);
 
     }
+
+    public function show(Listing $listing){
+
+        return $this->render('front/pages/listing.html.twig', [
+            'listing' => $listing,
+        ]);
+    }
+
 }

@@ -5,7 +5,7 @@
 
 <div class="{{ containerClass }}">
     <div class="card-listing-container">
-       {#  <a href="{{ path('app_listing_redirect', { 'name': listing.title }) }}"> #}
+        <a href="{{ path('app_listing_show', { 'id': listing.id }) }}">
             <img src="{{ listing.image }}">
         </a>
     </div>
@@ -24,13 +24,13 @@
         <div>
            Caractéristique: <ul>
                     <li>
-                        {{ listing.price/10 }}€
+                        {{ listing.price/100 }}€
                     </li>
                     <li>
-                        {{ listing.mileage }}
+                        {{ listing.mileage }} km
                     </li>
                     <li>
-                        {{ listing.producedYear }}
+                        année: {{ listing.producedYear }}
                     </li>
                 </ul>
         </div>
